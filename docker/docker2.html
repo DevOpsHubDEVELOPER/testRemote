@@ -1,0 +1,38 @@
+Tagging an Image
+----------------------------------------------------------------------------------------------------------
+
+first tag the build
+docker build -t dockerID/webapp:latest .
+docker run dockerID/webapp
+
+Note: if you dont specify the version in the end in docker run command by default it would take latest one
+-----------------------------------------------------------------------------------------------------------
+NOTE : We select a base image based open the list of programs avaialble that needs to build the image
+-----------------------------------------------------------------------------------------------------------
+NOTE : we don't provide port forwarding in Dockerfile
+-----------------------------------------------------------------------------------------------------------
+docker run -p host_port:container_port dockerID/webapp
+
+-----------------------------------------------------------------------------------------------------------
+Using shell of the container_port
+docker run -it dockerID/webapp sh
+------------------------------------------------------------------------------------------------------------
+Specifying a working directory
+
+COPY ./ ./
+
+It will copy the file in root directory of container_port
+
+so we should make a directory a put into that
+WORKDIR /usr/app
+COPY ./ ./
+
+WORKDIR commands will affect the exec command also
+if you type the following command you will directly land into that directory
+docker exec -it container_id sh
+-------------------------------------------------------------------------------------------------
+Don't need to remove the container if anything goes wrong in docker file just rebuild it with tag and you will have latest image
+-------------------------------------------------------------------------------------------------
+if any chages detected by docker, it will again run the next command that you have provided.
+
+--------------------------------------------------------------------------------------------------

@@ -1,0 +1,105 @@
+Creating and Running a Container from an image
+docker run <image name>
+-----------------------------------------------------------------------------------------------------------
+docker run <image name> command
+docker run busybox echo hi there
+-----------------------------------------------------------------------------------------------------------
+docker run busybox ls
+-----------------------------------------------------------------------------------------------------------
+Note : ls and echo works with the busybox image because these are program that exist in busybox file system.
+
+
+
+************************************************************************************************************
+List all running containers
+docker ps
+------------------------------------------------------------------------------------------------------------
+docker run busybox ping google.com
+
+
+
+************************************************************************************************************
+List of all containers ever been created on your machine
+docker ps --all
+------------------------------------------------------------------------------------------------------------
+
+Docker Run = Docker create + Docker start
+
+------------------------------------------------------------------------------------------------------------
+
+Docker create and docker start
+============================================================================================================
+docker create hello-world
+adf34654y4tg45g5
+docker start -a adf34654y4tg45g5
+
+Note : if a containers are stopped it does not mean it is dead we can start it anytime by using the docker start command by providing container id to it.
+-----------------------------------------------------------------------------------------------------------
+Removing stopped container
+docker system prune
+-----------------------------------------------------------------------------------------------------------
+Retrieving Log outputs
+docker create busybox echo hi there
+gw3r4t654gewagre
+docker start gw3r4t654gewagre
+eoirtgoet34t4565
+docker logs eoirtgoet34t4565
+----------------------------------------------------------------------------------------------------------
+To stop the Running container
+docker stop container_id
+docker kill container_id
+----------------------------------------------------------------------------------------------------------
+Execute an additional command in a container
+docker exec -it <container_id> <command>
+docker exec -it <container_id> redis-cli
+
+what is it flag?
+In linux we are having 3 communication channel
+STDIN STDOUT STDERR
+-i -t 
+-i STDIN channel
+-t nicely formatted indentation
+---------------------------------------------------------------------------------------------------------
+Getting a command Prompt in a Container
+docker exec -it <container_id> sh
+#cd ~/
+#ls
+---------------------------------------------------------------------------------------------------------
+ctrl+c or ctrl+d or exit to get out from the shell
+---------------------------------------------------------------------------------------------------------
+Starting with a Running shell
+docker run -it busybox sh
+---------------------------------------------------------------------------------------------------------
+How can we build our own image
+creating Dockerfile
+Dockerfile ---> Docker Client ---> Docker server ---> Usable Image
+
+Flow:
+specify a base image
+Run some commands to install additional programs
+specify a command to run on container startup
+
+Goal : Create an image that runs redis-server
+Dockerfile
+---------------------------------------------------------------------------------------------------------
+FROM alpine
+RUN apk add --update redis-cli
+CMD ["redis-server"]
+---------------------------------------------------------------------------------------------------------
+
+now run the following command in the same directory
+docker build .
+docker run the <container_id>
+---------------------------------------------------------------------------------------------------------
+Writing a dockerfile is like given a computer with no OS and being told to install chromeInstalling a OS is like providing base image
+Install an OS                                       || base image
+start up your default browser                         |
+navigate to chrome.google.com						  |Run commands to install additional programs
+Download installer                                    |
+open file/folder explorer                             |
+Execute chrome_installer.execExecute chrome.exe     || command to run on startup
+
+BASE Image is like the preinstalled set of programs that are useful to you!
+
+-------------------------------------------------------------------------------------------------------------------
+
