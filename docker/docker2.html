@@ -40,4 +40,24 @@ Docker compose is a seperate CLI that get installed with docker
 It makes possible communication between two individual containers
 To wrap up all the things we have learnt so far will use docker compose
 
-Create a file naming docker-compose.yml with the following content
+-------------------------------------------------------------------------------------------------
+It's single command does everything
+-------------------------------------------------------------------------------------------------
+docker-compose up
+-------------------------------------------------------------------------------------------------
+If you want to rebuild your image then use the follow command
+docker-compose up --build
+-------------------------------------------------------------------------------------------------
+
+Stopping the docker-compose running container
+docker-compose up -d
+docker ps
+docker-compose down
+
+-------------------------------------------------------------------------------------------------
+Restart Policies
+=================================================================================================
+"no"         Never attempt to restart this . container if it stops or crashes
++ always     if this container stops "for any reason" always attempt to restart it
+on-failure   Only restart if the container stops with an error code
+-------------------------------------------------------------------------------------------------
