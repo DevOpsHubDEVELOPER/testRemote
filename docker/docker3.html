@@ -1,0 +1,47 @@
+Use a dev-dockerfile for building the image
+----------------------------------------------------------------------------
+docker build -f Dockerfile.dev .
+
+-f means file name
+----------------------------------------------------------------------------
+Docker Volume with docker run command
+============================================================================
+windows user please use git bash to run the following command
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app image_id
+
+-v /app/node_modules == this folder already exist inside container
+-v $(pwd):/app == mapping the host directory to container directory
+============================================================================
+
+docker-compose.yml
+version: '3'
+services:
+  web:
+     build: .              #if the dockerfile name is Dockerfile in current directory otherwise you would get a error
+     ports:
+       - "3000:3000"
+     volumes:
+       - /app/node_modules
+       - .:/app 
+
+=============================================================================
+docker-compose up
+=============================================================================
+getting error ??
+try out the following code
+docker-compose.yml
+version: '3'
+services:
+  web:
+     build:
+       context: .  #it could be any dir
+       dockerfile: dev-dockerfile 
+     ports:
+       - "3000:3000"
+     volumes:
+       - /app/node_modules
+       - .:/app 
+
+=============================================================================
+docker-compose up
+=============================================================================
