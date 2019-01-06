@@ -1,0 +1,46 @@
+ls fileName*
+ls *fileName*
+==========================
+ll fileName*
+ll *fileName*
+==========================
+rm fileName*
+rm *fileName*
+==========================
+ll fileName?  ===include only last letter
+==========================
+ll [r]*
+list the file which start with r lower case
+==========================
+ll [rR]*
+list the file which start with r lower case OR R upper case
+==========================
+ll *[o][m]*
+list the file which contains om charset
+=============================
+ll [!is]*
+list the file which do not start with is
+===============================
+file00
+file01
+file02
+ll file[0][0-2]
+================================
+ll *[0][0-2]
+================================
+> ----redirect
+whoami > ~/whoami
+cd /home/$(whoami)
+cat ~/whoami
+id >> whoami
+cat whoami > /dev/null
+It will redirect to nowhere
+================================
+I/O redirection
+STDIN  (0)
+STDOUT (1)
+STDERR (2)
+
+2> redirect standard error
+
+2
