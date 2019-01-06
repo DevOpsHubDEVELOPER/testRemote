@@ -31,3 +31,14 @@ yum search sql | grep -i maria
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/s1-check-rpm-sig
 
 Always check the rpm package before installing
+===========================================================
+yum -C repolist
+display the configured software properties
+===========================================================
+see whether RPM package is installed or not
+rpm -q package_name_without_rpm_extension
+
+
+installing RPM package
+rmp -iv package_name_with_rpm_extension
+==========================================================
