@@ -1,15 +1,3 @@
-http://drib.tech/programming/docker-tutorial
-
-http://thobias.org/docker/index.html
-
-https://forums.docker.com/t/cant-reach-a-local-website-through-apache-in-a-docker-container-windows-docker-toolbox/5188
-
-https://github.com/fauria/docker-lap/blob/master/run-lap.sh
-
-https://writing.pupius.co.uk/apache-and-php-on-docker-44faef716150
-
-http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/
-
 FROM webdevops/php:centos-7-php56
 
 ENV WEB_DOCUMENT_ROOT=/app \
