@@ -19,3 +19,7 @@ COPY --from=builder /app/build /usr/share/nginx/html
 ==========================================================================
 docker build .
 docker run -p 8080:80 image_id
+==========================================================================
+mounting the directory
+docker run --name webserver -v /home/ec2-user/webserver/:/usr/local/apache2/htdocs/ -p 8080:80 -d httpd
+==========================================================================
