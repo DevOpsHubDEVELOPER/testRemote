@@ -50,4 +50,23 @@ STDERR (2)
 | Pipe standard output to another command
 
 >> Append to standard output
+=========================================
+List of running processes to the system
+ps -ef
+top
+ps -ef | grep firefox
+kill p_id
+ps -ef | awk -F" " '{print $1}'
+ps -ef | awk -F" " '{print $2}'
+ps -ef | awk -F" " '{print $1}' | rev > nums && cat nums | rev
+ps -ef | awk -F" " '{print $1}' | rev > nums && cat nums | rev >> nums && cat nums
+========================================
+ls /sgwhwsegwsdhwsh
+no such file or directory
 
+ls /sgwhwsegwsdhwsh 2> err
+
+========================================================
+command will not printed out to the screen
+clear && echo d && echo l
+==========================================================
