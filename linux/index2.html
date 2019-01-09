@@ -8,3 +8,52 @@ hardlink example
 ln sofftL hardLinkSoft
 =======================================================
 backup and recovery
+
+tail -f is very good command to use for live monitoring the log file
+just open two terminal 
+in the first terminal write tail -f logfile
+
+in the second terminal write echo "how are you doing" >> logfile
+
+
+tar file
+gz means compression
+==============================================================
+tar -cvpzf file.tar.gz destination
+tar -cvpf ~/backup.tar.gz ~/
+tar -tvf backup.tar.gz
+
+let's remove the verbose part
+
+tar -tf backup.tar.gz
+
+c tells overwrite it if it exisst already also
+v
+p preserve permissions
+z compression
+f create new file
+=================================================================
+mkdir SHEEP
+uncompress file
+tar -xvpzf file.tar.gz -C SHHEP
+
+======================================================================
+
+tar file
+tar -cvf file.tar folder1 folder2
+
+tar -tf file.tr
+
+bzip2 file.tar
+
+ll -lh file.tar.bz2
+bunzip2 file.tar.bz2
+=======================================
+bzip2 does more compression
+gzip is quite better than zip
+zip 
+
+these are compression methods
+===========================================
+CRONJOBS || use as backup tools
+
