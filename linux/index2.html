@@ -57,3 +57,26 @@ these are compression methods
 ===========================================
 CRONJOBS || use as backup tools
 
+MIN		HOUR	DOM		MON		DOW		CMD
+-
+0-60	0-23	1-31	1-12	0-6		echo "I am here"	
+
+MIN		HOUR	DOM		MON		DOW		CMD
+*		*		*		*		*		*
+==============================================
+first.sh
+#!/bin/bash
+touch /home/usr/newFile-$(date +%T-%F)
+
+===============================================
+echo test.$(date)
+date --help
+date +%T%F
+date +%T-%F
+chmod +x first.sh
+===============================================
+crontab -u user_name -l
+to enter into
+crontab -u user_name -e
+===============================================
+8:17:51
