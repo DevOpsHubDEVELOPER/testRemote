@@ -75,8 +75,52 @@ date +%T%F
 date +%T-%F
 chmod +x first.sh
 ===============================================
+to list the cron JOB
 crontab -u user_name -l
+
 to enter into
 crontab -u user_name -e
 ===============================================
 8:17:51
+===============================================
+crontab -u user_name -e
+#MIN		HOUR	DOM		MON		DOW		CMD
+*			*		*		*		*		/home/ec2-user/first.sh
+=====================================================================
+chekc the log messages if anything goes wrong
+/var/log/cron
+/var/log/message
+
+you can write like the following also
+crontab -u user_name -e
+#MIN		HOUR	DOM		MON		DOW		CMD
+@daily	/home/ec2-user/first.sh
+@weekly
+
+cron jobs are user specific
+
+you can see the system cron job also
+vim /etc/crontab
+
+cd /etc
+ls | grep cron
+cron.allow
+cron.deny
+cron.daily
+These all are you can use according to your requirement
+ps aux | grep cron
+==========================================================
+User Management
+
+
+
+
+
+
+
+
+
+
+
+
+
