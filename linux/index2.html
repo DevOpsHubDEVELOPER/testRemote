@@ -111,16 +111,78 @@ These all are you can use according to your requirement
 ps aux | grep cron
 ==========================================================
 User Management
+cat /etc/passwd
 
+grep user_name /etc/passwd
+grep user_name /etc/shadow
+ll /etc/shadow
 
+you can see the user detials with login and passowrd encryption and if any problem is with user
+cat /etc/shadow | grep user_name && cat /etc/passwd | grep user_name
 
+Login as root user
+useradd --help
+useradd -c "Adam warlock" Adam
+useradd -c "Adam warlock" Adam
 
+Set password
+passwd --help
+passwd -e 2019-2-2 Adam
+12345
+passwd -e Adam
+Note: if you dont pass any date after -e the password will expire on next login
 
+vim /etc/passwd
+you can edit the user inforrmation
+================================================================================
+groupadd --help
+configuration file for defaults
+vim /etc/login.defs
 
+you can set the parameters about the user creation details or group creation details
+like creating home and all
+password min length 
+passowrd expiry date, some path, encryption details and all
+=======================================================================================
+groupadd marketing
+groupadd sales
+groupadd anything
 
+secondary group
+cat /etc/group
 
+see the primary user details
+cat /etc/passwd | grep group_id
 
+ 
+id Adam
 
+usermod --help
 
+change primary group(g1) of Adam
 
+usermod -g Meat Adam
+id Adam 
+
+change secondary group(gid) of Adam
+usermod -G Sheep Adam
+id Adam
+
+not override, append group
+usermod -aG marketing Adam
+id Adam
+
+usermod -aG sales Adam
+id Adam
+
+you can change the shell of a user
+usermod -s /bin/tcsh Adam
+
+cat /etc/passwd | grep Adam
+
+Delete a group
+groupdel marketing
+
+vim /etc/group
+and can change the group also
 
