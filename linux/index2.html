@@ -218,15 +218,64 @@ ip addr show enp0s3
 ip addr show enp0s3 | grep "inet "
 ip addr show enp0s3 | grep inet
 ====================================
+network manager tools
+ip addr show
+ip addr help
+ip addr add 10.10.10.10 dev enp0s3
+ip addr show
+ip addr del 10.10.10.10 dev enp0s3
+ip addr show
 
+nmcli connection down enp0s3
+ip addr show
+nmcli connection up enp0s3
+ip addr add 10.10.10.10 dev enp0s3
+ip addr show
+nmcli connection down enp0s3
+ip addr show
+nmcli connection up enp0s3
 
+you wont see 10.10.10.10 is ip addr show
+it was temporary
+to make permanent
 
+cd /etc/sysconfig/network-scripts
+ls
+vim ifcfg-enp0s3
+enp0s3 is the name of network device
 
+=========================================
+vim ifcfg-enp0s3
+add dns service if it is not there
+cat /etc/resolv.conf
+open dns server which my virtual machine has picked up from the physical machine and physical machine has picked up from router
 
+add in vim ifcfg-enp0s3
 
+DNS1=8.8.8.8
+DNS2=8.8.4.4
 
+open dns of google
+configure static ip
 
+vim ifcfg-enp0s3
+add the following
 
+NM_CONTROLLED="yes"
+IPADDR=10.10.10.0
+NETMASK=255.255.255.0
+DNS1=8.8.8.8
+DNS2=8.8.4.4
+
+on off the network connections
+systemctl restart NetworkManager
+you will see the ip address 10.10.10.10
+
+nmcli connection down enp0s3
+nmcli connection up enp0s3
+ip addr show
+you will see 10.10.10.0/24
+=================================================
 
 
 
