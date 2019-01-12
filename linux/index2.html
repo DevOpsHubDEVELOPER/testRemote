@@ -276,12 +276,42 @@ nmcli connection up enp0s3
 ip addr show
 you will see 10.10.10.0/24
 =================================================
+NETWORK manager
+=================================================
+nmcli --help
+nmtui
+press tab to move
 
+ping
+vim ifcfg-enp0s3
+BOOTPROTO="dhcp"
+removed dns,nm-controlledd
 
+systemctl restart NetworkManager
+ip addr show
+ping google.com
+ping 192.168.1.101
 
+hwo know port is open
 
+netstat -tulpen
+listening port will be listed
 
+netstat | grep tcp
 
+nslookup google.com
 
+DNS server
+dig google.com 
 
+traceroute google.com
 
+========================================
+scannig network
+nmap
+yum search nmap
+yum install -y nmap
+to verify port opens and all
+nmap 192.168.1.101 -p 22 -vv
+nmap 192.168.1.101 -p 80 -vv
+===========================================
