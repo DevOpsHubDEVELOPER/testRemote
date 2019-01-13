@@ -1,0 +1,33 @@
+install sshd server
+yum install sshd-server*
+==============================
+iptables -h
+iptables -I INPUT 1 tcp --dport 22 -j ACCEPT 
+iptables -L INPUT
+iptables -I INPUT 1 -p tcp --dport 22 -j ACCEPT
+================================================
+ifconfig
+ssh remote@ip_address
+==================================================
+password less ssh login
+vim /etc/ssh/sshd_config
+#port 22
+you can change the port 
+PermitRootLogin no
+PasswordAuthentication yes
+service sshd restart
+=======================================================
+ssh keygen
+ssh-copy-id remote_user@ip
+ssh-add
+now attempt login
+ssh remote_user@ip 
+
+====================================================================
+scp command
+scp folder_name remote@ip_address:/home/remote/download
+
+===================================================================
+partitioning and partitions
+
+
