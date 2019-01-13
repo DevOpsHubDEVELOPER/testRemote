@@ -77,3 +77,86 @@ press w for all things you want to save
 * show the boot drive
 =======================================================
 format the partitions
+mkfs
+mkfs.xfs --help
+
+mkfs.xfs -L spoon /dev/sdb2
+
+now, partitions has been formated
+lsblk -a
+see all the disk
+lsblk -o name,label,size
+
+fdisk -l
+====================================================
+mount a partitions
+
+temporary partitions
+auto mounting
+
+mount /dev/sdb2 /mnt
+cd /mnt
+ls
+
+mkdir hey
+cd ..
+
+umount /dev/sdb2
+no file
+but file is their, disk is not being used
+=======================================
+cd /mnt
+mkdir Udemy
+mount /dev/sdb2 /mnt/Udemy
+cd Udemy
+ls
+========================================
+cd ..
+umount Udemy
+mount /dev/sdb2 /mnt/Udemy/I_DONT_EXIST
+error message
+========================================
+fdisk -l
+see the usb drive
+======================================
+permanent mount
+vim /etc/fstab
+blkid
+add the following line
+LABEL=spoon		/mnt/Udemy		xfs		defaults,s-systemd.device-timeout=0 0 0
+
+save and exit 
+mount -a 
+mount everything
+cd /mnt/Udemy/
+ls
+mount | grep /dev/sdb2
+
+umount Udemy
+mount -a
+
+udemy will be there
+
+xfs
+man xfs_admin
+xfs_admin -L Earth /dev/sdb2
+error
+cd ..
+umount /Udemy
+xfs_admin -L Earth /dev/sdb2
+blkid
+blkid | grep /dev/sdb2
+you will see the label is changed
+mount -a
+you will get a error saying spoon not found
+
+vim /etc/fstab
+change the label name as Earth
+mount -a
+
+it works
+==========================================================
+mount | grep /dev/sdb2
+
+==========================================================
+Linux volume management
