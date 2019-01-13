@@ -29,5 +29,51 @@ scp folder_name remote@ip_address:/home/remote/download
 
 ===================================================================
 partitioning and partitions
+xfs file system, is very faster that ext4
+ext4
+vfat --sake of compatibility
+NTFS - not used in linux, it's for windows
+===================================================
+fdisk -l
+cat /proc/partitions
+sr0 is cd drive
+sda is hard disk
+sda1 and sda2 are partitions
+cat /proc/iomem
 
+add hard disk to your virtual machine and then restart the system
+cat /proc/partitions
+you will see one new drive sdb
+fdisk -l /dev/sdb
+fdisk -l /dev/sda
 
+let's create partitions now
+fdisk /dev/sdb
+
+type m for help
+type x for experts level command
+type m for help
+type p for print partitions
+type l for more help
+type n for creating partitions primary and extended
+press p for defult
+enter 
+enter 
+enter
+give size +5G
+enter
+press m
+press p
+you will see your partitions
+/dev/sdb1
+pres d for delete the partitions
+n,p,n
+create partitions
+
+size +10G
+
+press w for all things you want to save
+=======================================================
+* show the boot drive
+=======================================================
+format the partitions
