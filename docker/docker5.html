@@ -1,0 +1,163 @@
+docker container run ubuntu cat /etc/os-release
+
+will run cat /etc/os-release for a while and exit it
+
+
+
+docker container run sleep 30
+
+
+
+docker container run nginx
+
+
+
+docker container rm docker_id_only_2digits_can_work
+
+
+
+docker container start container_id
+
+
+
+docker container stop container_id
+
+
+
+docker container run -d ubuntu sleep 30
+
+
+
+docker container run -it ubuntu /bin/bash [do not put -d here]
+
+
+
+Press ctrl+p , ctrl+q to safe exit with running container
+
+
+
+Remove all container
+
+docker container rm $(docker container ls -aq)
+
+
+
+To see every single details about running docker
+
+docker container run -d nginx
+
+docker container inspect docker_id_only_2digits_can_work
+
+
+
+see the logs of docker container
+
+docker container logs docker_container_id
+
+
+
+see the process of docker container
+
+docker container top container_id
+
+
+
+see the Proc and memory used by a docker container
+
+docker container stats
+
+
+
+port forwarding to host
+
+docker container run -d -p 3600:80 nginx
+
+docker container run -d -p 3600:80 --name test1_web nginx
+
+
+
+Go to the running container shell
+
+docker container exec -it container_id /bin/bash
+
+ctrl+p, ctrl+q
+
+
+
+renaming the docker container
+
+docker container rename container_id name_container
+
+docker container restart container_id
+
+
+
+see the diff of container
+
+docker container diff container_id
+
+
+
+docker container attack container_id
+
+
+
+Export/Import docker container
+
+docker container export docker_id >myubnutu_git.tar
+
+docker container export docker_id -o myubnutu_git.tar
+
+
+
+docker image import myubnutu_git.tar myubuntu_test
+
+
+
+mysql data persist in docker container
+
+two method
+
+volume and bind mount
+
+volume
+
+-------
+
+docker volume ls
+
+docker image ls
+
+docker image inspect mysql
+
+
+
+docker container run --name mysl1 -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+
+docker volume ls
+
+docker volume inspect volume_id
+
+
+
+docker container run -itd -v volumename_id:/var/lib/mysql mysql
+
+docker container exec -it docker_tag sh
+
+
+
+
+
+docker container run -d --name dtabadfd -v abc:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+
+docker container ls
+
+docker volume ls
+
+
+
+bind mount
+
+----------
+
+docker container run -it -v /home/sonu/bind:/var/lib/mysql ubuntu:14.04 bash
